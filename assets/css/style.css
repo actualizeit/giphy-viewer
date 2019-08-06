@@ -1,0 +1,9 @@
+#game-buttons .btn{
+    background-color: grey;
+    color: white;
+    height: 30px;
+    float: left;
+}
+#add-movie, #gif-input, #gif-input-label{
+    float: left
+}
