@@ -4,7 +4,8 @@ var videoGames = ["dota", "smash brothers", "goldeneye", "mario kart", "big buck
                 "counterstrike", "diablo", "soul calibur", "warcraft", "fifa", "doom"]
 
 function displayGameGifs() {
-
+  $("body").css('background-image', 'none');
+  $("body").css({ 'background-color': 'black' });
   var game = $(this).attr("data-name");
   var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=EZDTGbiqXXiqZl2mKgXw3iiXuNNZtQ3S&q=" + game + "&limit=10&offset=0&lang=en";
 
@@ -81,8 +82,8 @@ for (var i = 0; i < response.data.length; i++) {
       //Adding a button function
       $(document).on("click", "#add-button", function() {
         event.preventDefault();
-        $("body").css({ 'background-color': "black" });
         $("body").css('background-image', 'none');
+        $("body").css({ 'background-color': 'black' });
         // This line grabs the input from the textbox
         var game = $("#add-button-form").val().trim();
         $('#add-button-form').val('');
