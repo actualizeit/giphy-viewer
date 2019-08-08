@@ -74,13 +74,15 @@ for (var i = 0; i < response.data.length; i++) {
       // Providing the initial button text
       a.text(videoGames[i]);
       // Adding the button to the buttons-view div
-      $("#game-buttons").prepend(a);
+      $("#game-buttons").append(a);
     }
   }
 
       //Adding a button function
       $(document).on("click", "#add-button", function() {
         event.preventDefault();
+        $("body").css({ 'background-color': "black" });
+        $("body").css('background-image', 'none');
         // This line grabs the input from the textbox
         var game = $("#add-button-form").val().trim();
         $('#add-button-form').val('');
@@ -112,13 +114,3 @@ for (var i = 0; i < response.data.length; i++) {
           $(this).attr("data-state", "still");
         }
       });
-
-
-
-      $(document).ready(function () {
-        $(document).on('click', ".table .btn", function (e) {
-            e.preventDefault();
-            id = $(this).attr('id')
-            alert(id);
-        });
-    });
