@@ -30,8 +30,8 @@ for (var i = 0; i < response.data.length; i++) {
     gameDiv.append(rated);
 
     // Retrieving the URL for the image
-    var gifURLStill = response.data[i].images.downsized_still.url
-    var gifURLAnimate = response.data[i].images.downsized.url
+    var gifURLStill = response.data[i].images.fixed_height_still.url
+    var gifURLAnimate = response.data[i].images.fixed_height.url
 
     // Creating an element to hold the image
     var image = $("<img>")
@@ -79,17 +79,15 @@ for (var i = 0; i < response.data.length; i++) {
   }
 
       //Adding a button function
-      $("#add-button").on("click", function() {
-        console.log("mkay")
+      $(document).on("click", "#add-button", function() {
         event.preventDefault();
         // This line grabs the input from the textbox
         var game = $("#add-button-form").val().trim();
-        console.log(game)
+        $('#add-button-form').val('');
         // Adding game from the textbox to our array
         videoGames.push(game);
-
         // Calling renderButtons which handles the processing of our videoGame array
-        renderButtons();
+          renderButtons();
       });
 
       // Adding a click event listener to all elements with an id of "game-btn"
@@ -101,7 +99,6 @@ for (var i = 0; i < response.data.length; i++) {
       }); 
 
       $(document).on("click", "#gif", function() {
-        console.log("wut")
         // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
         var state = $(this).attr("data-state");
         // If the clicked image's state is still, update its src attribute to what its data-animate value is.
