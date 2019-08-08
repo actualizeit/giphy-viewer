@@ -100,9 +100,7 @@ for (var i = 0; i < response.data.length; i++) {
         renderButtons();
       }); 
 
-      
-      $("#gif").on("click", function() {
-        $(document).ready(function () {
+      $(document).on("click", "#gif", function() {
         console.log("wut")
         // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
         var state = $(this).attr("data-state");
@@ -116,7 +114,6 @@ for (var i = 0; i < response.data.length; i++) {
           $(this).attr("src", $(this).attr("data-still"));
           $(this).attr("data-state", "still");
         }
-      }
       });
 
 
