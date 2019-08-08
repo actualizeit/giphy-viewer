@@ -12,28 +12,18 @@
   </head>
   <body>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
-
     <div class="container" id="gametime">
-
+      <img src="https://media.giphy.com/media/Xlnlw26iRMvyU/giphy.gif" alt="emg">
         <div class="col-12 pb-3 text-center">
             <h1>You Boyz Like Vijea Gamez?</h1>
         </div>
-            <div class="row" id="ansButtons">
+            <div class="row" id="header">
             <div class="col-8 pb-1 text-center">
             <h4>Click a button for some sweet gif action or add your own!</h4>
             </div>
         <div class="col-4 pb-3 text-center">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="add-button-form">
-                    <span class="input-group-btn">
-                            <button class="btn btn-secondary" id="add-button" type="button">Add One!</button>
-                    </span>
+                    <input type="text" id="add-button-form">
+                    <button class="btn" id="add-button">Add One!</button>
                 </div>
         </div>
     </div>
@@ -42,10 +32,17 @@
             <button type="button" class="btn btn-sm align-middle font-weight-bold m-1" id="ans1"><p>Answers123456789</p></button>
             <button type="button" class="btn btn-sm align-middle font-weight-bold m-1" id="ans1"><p>Answers123456789</p></button>
             <button type="button" class="btn btn-sm align-middle font-weight-bold m-1" id="ans1"><p>Answers123456789</p></button> -->
-
+            <button class="btn" id="add-button">Add One!</button>
         </div>
-    </div>
+        <div class="row" id ="game-gif-view"></div>
 
-    </div>
+
+
+        <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
   </body>
 </html>

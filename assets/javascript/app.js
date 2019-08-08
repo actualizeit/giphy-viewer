@@ -1,4 +1,4 @@
-// giphy api key EZDTGbiqXXiqZl2mKgXw3iiXuNNZtQ3S
+
 
 var videoGames = ["dota", "smash brothers", "goldeneye", "mario kart", "big buck hunter", 
                 "counterstrike", "diablo", "soul calibur", "warcraft", "fifa", "doom"]
@@ -8,17 +8,20 @@ function displayGameGifs() {
   var game = $(this).attr("data-name");
   var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=EZDTGbiqXXiqZl2mKgXw3iiXuNNZtQ3S&q=" + game + "&limit=10&offset=0&lang=en";
 
-  // Creating an AJAX call for the specific movie button being clicked
+  // Creating an AJAX call for the specific game button being clicked
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+console.log(response)
 
-    // Creating a div to hold the movie
-    var gameDiv = $("<div class='game'>");
+for (var i = 0; i < response.data.length; i++) {
+
+  // Creating a div to hold the game
+    var gameDiv = $("<div class='font-weight-bold m-2'>");
 
     // Storing the rating data
-    var rating = response.rating;
+    var rating = response.data[i].rating;
 
     // Creating an element to have the rating displayed
     var rated = $("<p>").text("Rating: " + rating);
@@ -27,34 +30,42 @@ function displayGameGifs() {
     gameDiv.append(rated);
 
     // Retrieving the URL for the image
-    var gifURL = response.url;
+    var gifURLStill = response.data[i].images.downsized_still.url
+    var gifURLAnimate = response.data[i].images.downsized.url
 
     // Creating an element to hold the image
-    var image = $("<img>").attr("src", gifURL);
+    var image = $("<img>")
+    image.attr("src", gifURLStill)
+    image.attr("alt", response.data[i].slug)
+    image.attr("data-still", gifURLStill)
+    image.attr("data-animate", gifURLAnimate)
+    image.attr("data-state", "still")
+    image.attr("id", "gif")
 
     // Appending the image
     gameDiv.append(image);
 
-    // Putting the entire movie above the previous movies
-    $("#movies-view").prepend(movieDiv);
+    // Putting the game gifs above the previous game gifs
+    $("#game-gif-view").prepend(gameDiv);
+}
   });
 
 }
 
-  // Function for displaying movie data
+  // Function for displaying buttons
   function renderButtons() {
 
-    // Deleting the movies prior to adding new movies
+    // Deleting the buttons prior to adding new buttons to the array
     // (this is necessary otherwise you will have repeat buttons)
     $("#game-buttons").empty();
 
-    // Looping through the array of movies
+    // Looping through the array of games
     for (var i = 0; i < videoGames.length; i++) {
 
-      // Then dynamicaly generating buttons for each movie in the array
+      // Then dynamicaly generating buttons for each game in the array
       // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
       var a = $("<button>");
-      // Adding a class of movie-btn to our button
+      // Adding the bootstrap elements desired to the button
       a.addClass("btn btn-sm align-middle font-weight-bold m-1");
       // Adding a data-attribute
       a.attr("data-name", videoGames[i]);
@@ -63,30 +74,50 @@ function displayGameGifs() {
       // Providing the initial button text
       a.text(videoGames[i]);
       // Adding the button to the buttons-view div
-      $("#game-buttons").append(a);
+      $("#game-buttons").prepend(a);
     }
   }
 
       //Adding a button function
-      $("#add-button").on("click", function(event) {
+      $("#add-button").on("click", function() {
+        console.log("mkay")
         event.preventDefault();
         // This line grabs the input from the textbox
         var game = $("#add-button-form").val().trim();
-
-        // Adding movie from the textbox to our array
+        console.log(game)
+        // Adding game from the textbox to our array
         videoGames.push(game);
 
-        // Calling renderButtons which handles the processing of our movie array
+        // Calling renderButtons which handles the processing of our videoGame array
         renderButtons();
       });
 
-      // Adding a click event listener to all elements with a class of "movie-btn"
-      $(document).on("click", ".game-btn", displayGameGifs);
+      // Adding a click event listener to all elements with an id of "game-btn"
+      $(document).on("click", "#game-btn", displayGameGifs);
 
       // Calling the renderButtons function to display the intial buttons
       $( document ).ready(function() {
         renderButtons();
       }); 
+
+      
+      $("#gif").on("click", function() {
+        $(document).ready(function () {
+        console.log("wut")
+        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+        var state = $(this).attr("data-state");
+        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+        // Then, set the image's data-state to animate
+        // Else set src to the data-still value
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+      }
+      });
 
 
 

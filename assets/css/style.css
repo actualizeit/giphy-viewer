@@ -1,6 +1,9 @@
-#game-buttons .btn{
+.btn{
     background-color: grey;
     color: white;
+}
+
+#game-buttons .btn{
     height: 30px;
     float: left;
 }
