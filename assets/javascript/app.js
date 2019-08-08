@@ -40,35 +40,6 @@ function displayGameGifs() {
   });
 
 }
-    // Event listener for our cat-button
-    $("#game-buttons").on("click", function() {
-
-        var searchTerm = this.val()
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=EZDTGbiqXXiqZl2mKgXw3iiXuNNZtQ3S&tag=" + searchTerm;
-  
-        // Perfoming an AJAX GET request to our queryURL
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        })
-  
-          // After the data from the AJAX request comes back
-          .then(function(response) {
-  
-            // Saving the image_original_url property
-            var imageUrl = response.data.image_original_url;
-  
-            // Creating and storing an image tag
-            var catImage = $("<img>");
-  
-            // Setting the catImage src attribute to imageUrl
-            catImage.attr("src", imageUrl);
-            catImage.attr("alt", "cat image");
-  
-            // Prepending the catImage to the images div
-            $("#images").prepend(catImage);
-          });
-      });
 
   // Function for displaying movie data
   function renderButtons() {
@@ -84,16 +55,17 @@ function displayGameGifs() {
       // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
       var a = $("<button>");
       // Adding a class of movie-btn to our button
-      a.addClass("game-btn");
+      a.addClass("btn btn-sm align-middle font-weight-bold m-1");
       // Adding a data-attribute
       a.attr("data-name", videoGames[i]);
+      // Adding an ID
+      a.attr("id", "game-btn")
       // Providing the initial button text
       a.text(videoGames[i]);
       // Adding the button to the buttons-view div
       $("#game-buttons").append(a);
     }
   }
-
 
       //Adding a button function
       $("#add-button").on("click", function(event) {
@@ -112,4 +84,16 @@ function displayGameGifs() {
       $(document).on("click", ".game-btn", displayGameGifs);
 
       // Calling the renderButtons function to display the intial buttons
-      renderButtons();
+      $( document ).ready(function() {
+        renderButtons();
+      }); 
+
+
+
+      $(document).ready(function () {
+        $(document).on('click', ".table .btn", function (e) {
+            e.preventDefault();
+            id = $(this).attr('id')
+            alert(id);
+        });
+    });
