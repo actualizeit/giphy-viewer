@@ -1,6 +1,6 @@
-# Da Best Staw Was Game Evah!
+# Gifs for the masses. I am a generous god.
 
-Have you ever wanted to see what random people on the internet have turned into memes from your favorite video games? Well now's your chance. Just click one of the prepopulated buttons and you'll get 10 of the dankest gif memes the whole planet can think up, specific to your video game of choice. Or really anything else if you add a button for it.
+Have you ever wanted to see what random people on the internet have turned into gif-based memes from your favorite video games? Well now's your chance! Just click one of the prepopulated buttons and you'll get 10 of the dankest gif memes the whole planet can think up, specific to your video game of choice. Or really anything else if you add a button for it.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ No installation necessary, this thing runs in the browser!
 
 ## Running the tests
 
-Click a bunch on stuff and see what happens. Then tell me if you want.
+Click a bunch of stuff and see what happens. Then tell me if you want.
 
 ## Built With
 
