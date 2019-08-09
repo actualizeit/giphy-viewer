@@ -91,6 +91,12 @@ $(document).on("click", "#add-button", function() {
   renderButtons();
 });
 
+$(document).on("click", "#reset", function() {
+  event.preventDefault();
+  $("body").css('background-image', 'url(assets/images/meow.jpg)');
+  $( "#game-gif-view" ).empty()
+});
+
 // Adding a click event listener to all elements with an id of "game-btn"
 $(document).on("click", "#game-btn", displayGameGifs);
 
