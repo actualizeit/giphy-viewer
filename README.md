@@ -38,6 +38,8 @@ I'm not taking input at the moment, but you know version two won't build itself,
 
 Only the one version for now, but who knows what the future holds!
 
+Current version is viewable here: https://actualizeit.github.io/giphy-viewer/
+
 ## Authors
 
 * **David Bell** - *Initial work* - [ActualizeIt](https://github.com/actualizeit)
